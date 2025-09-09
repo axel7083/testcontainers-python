@@ -57,7 +57,7 @@ class KubePlay:
 
 
     def stop(self, force: bool = False) -> None:
-        down_cmd = [self.podman_command_path, "kube", "down", self.kube_play_file]
+        down_cmd = [self.podman_command_path, "kube", "down", str(self.kube_play_file)]
 
         if force:
             # Tear down the volumes linked to the PersistentVolumeClaims as part of --down
