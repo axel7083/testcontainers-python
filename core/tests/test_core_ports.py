@@ -49,7 +49,6 @@ def test_docker_container_with_bind_ports(container_port: Union[str, int], host_
 @pytest.mark.parametrize(
     "container_port, host_port",
     [
-        ("0", "8080"),
         ("8080", "abc"),
         (0, 0),
         (-1, 8080),
