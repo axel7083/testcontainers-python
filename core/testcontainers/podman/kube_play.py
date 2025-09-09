@@ -39,7 +39,7 @@ class KubePlay:
         self.stop(force=not self.keep_volumes)
 
     def start(self) -> None:
-        start_cmd = [self.podman_command_path, "kube", "play", self.kube_play_file]
+        start_cmd = [self.podman_command_path, "kube", "play", str(self.kube_play_file)]
 
         # build means modifying the up command
         if self.build:
@@ -56,7 +56,7 @@ class KubePlay:
         self._pods = info['Pod']
 
 
-    def stop(self, force = False) -> None:
+    def stop(self, force: bool = False) -> None:
         down_cmd = [self.podman_command_path, "kube", "down", self.kube_play_file]
 
         if force:

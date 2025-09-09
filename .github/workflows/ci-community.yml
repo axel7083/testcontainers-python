@@ -14,7 +14,7 @@ on:
 
 jobs:
   track-modules:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout contents
         uses: actions/checkout@v4
@@ -38,7 +38,7 @@ jobs:
     outputs:
       changed_modules: ${{ steps.compute-changes.outputs.computed_modules }}
   test:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs: [track-modules]
     if: ${{ needs.track-modules.outputs.changed_modules != '[]' }}
     strategy:
